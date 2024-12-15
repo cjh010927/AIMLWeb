@@ -92,7 +92,7 @@ if uploaded_file is not None:
         st.write(f"Accuracy of {classifier_name}: {accuracy:.2f}")
 
         # Threshold 조정 슬라이더(message, min, max, default value, step)
-        threshold = st.silider("Adjust Threshold", 0.0, 1.0, 0.5, 0.01)
+        threshold = st.slider("Adjust Threshold", 0.0, 1.0, 0.5, 0.01)
 
         # Treshold에 따른 예측 및 성능 계산
         y_pred_threshold = (y_scores > threshold).astype(int)
@@ -111,7 +111,7 @@ if uploaded_file is not None:
             plt.figure(figsize=(10, 6))
             plt.plot(threshold, precision[:-1], label="Precision", marker='.')
             plt.plot(threshold, recall[:-1], label="Recall", marker='.')
-            plt.Xlabel("Threshold");plt.ylabel("Precision / Recall")
+            plt.xlabel("Threshold");plt.ylabel("Precision / Recall")
             plt.title("Precsion and Recall vs Threshold")
             plt.legend();plt.grid()
             start, end = plt.xlim()
